@@ -1,3 +1,83 @@
 body {
-  background-color: rgb(37, 153, 93);
+  background-color: rgb(37, 153, 93, 0.85);
+}
+
+h1 {
+  text-align: center;
+}
+
+.card-item-task {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 16.625rem;
+  padding: 8px;
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  box-shadow: 10px 10px 20px rgba(49, 75, 105, 0.3),
+    0 10px 10px rgba(49, 75, 105, 0.3);
+  border-radius: 4px;
+  margin-bottom: 16px;
+  transition-duration: 0.3s;
+}
+
+.title-task {
+  color: #221c1d;
+  margin-bottom: 10px;
+}
+
+.user-task {
+  color: #221c1d;
+  margin-bottom: 10px;
+}
+
+.card-row-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media (max-width: 1018px) {
+  .card-row-wrapper {
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
+
+.card-row-item-todo, .card-row-item-inprogress, .card-row-item-done {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 18.625rem;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.card-iem_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.button-change, .button-done, .button-up, .button-down, .button-delete {
+  width: 150px;
+  margin-bottom: 15 px;
+}
+
+.button-add {
+  padding: 5px 40px;
+}
+
+h3 {
+  color: #ffffff;
+  text-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);
 }

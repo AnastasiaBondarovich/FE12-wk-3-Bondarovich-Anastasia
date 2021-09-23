@@ -10,6 +10,7 @@ module.exports = {
     filename: '[name].[contenthash].js', 
     clean: true,
   },
+  devtool: "source-map",
   devServer: {
     port: 3000,
     hot: true,
