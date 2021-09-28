@@ -68,7 +68,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.button-change, .button-done, .button-up, .button-down, .button-delete {
+.button-change, .button-done, .button-up, .button-down, .button-delete, .button-modal {
   width: 150px;
   margin-bottom: 15 px;
 }
@@ -81,3 +81,19 @@ h3 {
   color: #ffffff;
   text-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);
 }
+
+.modal-item {
+  position: absolute;
+  right: 30%;
+  left: 30%;
+  background-color: rgba(3, 36, 30, 0.966);
+  min-width: 300px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  z-index: 100;
+}
+

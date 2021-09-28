@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './App';
 import 'styles/index.scss';
-import CardHolder from './Components/CardHolder/CardHolder';
 
 ReactDOM.render(
-  <CardHolder/>,
+  <App/>,
   document.getElementById("root")
 );
 

@@ -2,6 +2,37 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/App.jsx":
+/*!*********************!*\
+  !*** ./src/App.jsx ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_CardHolder_CardHolder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/CardHolder/CardHolder */ "./src/Components/CardHolder/CardHolder.jsx");
+/* harmony import */ var _GlobalModalProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./GlobalModalProvider */ "./src/GlobalModalProvider.jsx");
+
+
+
+
+var App = function App(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_GlobalModalProvider__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    renderProps: function renderProps(setIsModalOpen) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_CardHolder_CardHolder__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        setIsModalOpen: setIsModalOpen
+      });
+    }
+  }));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
+
+/***/ }),
+
 /***/ "./src/Components/CardHolder/CardHolder.jsx":
 /*!**************************************************!*\
   !*** ./src/Components/CardHolder/CardHolder.jsx ***!
@@ -13,124 +44,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _modules_cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../modules/cards */ "./src/modules/cards.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
+/* harmony import */ var _cards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../cards */ "./src/Components/cards.js");
+/* harmony import */ var _ModalWindow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ModalWindow */ "./src/Components/ModalWindow.jsx");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
-var CardHolder = /*#__PURE__*/function (_React$Component) {
-  _inherits(CardHolder, _React$Component);
 
-  var _super = _createSuper(CardHolder);
+var CardHolder = function CardHolder(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      taskList = _useState2[0],
+      setTaskList = _useState2[1];
 
-  function CardHolder(props) {
-    var _this;
-
-    _classCallCheck(this, CardHolder);
-
-    _this = _super.call(this, props);
-
-    _defineProperty(_assertThisInitialized(_this), "addTask", function () {
-      var newTaskList = _toConsumableArray(_this.state.taskList);
-
-      newTaskList.push({
-        taskName: 'Brush teeth',
-        isDone: true
-      });
-
-      _this.setState({
-        taskList: newTaskList
-      });
-    });
-
-    _defineProperty(_assertThisInitialized(_this), "changeName", function (index) {
-      return function () {
-        var newTaskList = _toConsumableArray(_this.state.taskList);
-
-        newTaskList[index].taskName = 'Wash hands';
-
-        _this.setState({
-          taskList: newTaskList
-        });
-      };
-    });
-
-    _this.state = {
-      taskList: [{
-        taskName: 'Brush teeth',
-        isDone: false
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log('use effect');
+    new Promise(function (resolve, reject) {
+      resolve([{
+        taskName: 'task 0',
+        isDone: false,
+        userName: 'Jon'
       }, {
-        taskName: 'Brush teeth',
-        isDone: false
-      }]
+        taskName: 'task 1',
+        isDone: false,
+        userName: 'Jack'
+      }]);
+    }).then(function (data) {
+      setTaskList(data);
+    });
+    return function () {
+      console.log('bue');
     };
-    return _this;
-  }
+  }, []);
 
-  _createClass(CardHolder, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
+  var addTask = function addTask() {
+    var newTaskList = _toConsumableArray(taskList);
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.state.taskList.map(function (task, index) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_modules_cards__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          taskName: task.taskName,
-          isDone: task.isDone
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-          onClick: _this2.changeName(index)
-        }, "Change Name"));
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.addTask
-      }, "Add Task"));
-    }
-  }]);
+    newTaskList.push({
+      taskName: "task ".concat(taskList.length),
+      isDone: true,
+      userName: 'Jon'
+    });
+    setTaskList(newTaskList);
+  };
 
-  return CardHolder;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+  var removeTask = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (index) {
+    return function () {
+      var newTaskList = _toConsumableArray(taskList);
+
+      newTaskList.splice(index, 1);
+      setTaskList(newTaskList);
+    };
+  }, [taskList]);
+  var changeName = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(function (index) {
+    return function () {
+      var result = prompt('New title of task:', '');
+
+      var newTaskList = _toConsumableArray(taskList);
+
+      newTaskList[index].taskName = result;
+      setTaskList(newTaskList);
+    };
+  }, [taskList]);
+  console.log('cardHolder render');
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-row-wrapper"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-row-item-todo"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "To Do List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, taskList.map(function (task, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      key: task.taskName
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_cards__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      taskName: task.taskName,
+      setIsModalOpen: props.setIsModalOpen,
+      removeTask: removeTask,
+      isDone: task.isDone,
+      userName: task.userName,
+      index: index,
+      changeName: changeName
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-add",
+    onClick: addTask
+  }, "Add Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-row-item-inprogress"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "List In Progress"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, taskList.map(function (task, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_cards__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      taskName: task.taskName,
+      setIsModalOpen: props.setIsModalOpen,
+      removeTask: removeTask,
+      isDone: task.isDone,
+      userName: task.userName,
+      index: index,
+      changeName: changeName
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-add",
+    onClick: addTask
+  }, "Add Task")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-row-item-done"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Done List"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, taskList.map(function (task, index) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_cards__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      taskName: task.taskName,
+      setIsModalOpen: props.setIsModalOpen,
+      removeTask: removeTask,
+      isDone: task.isDone,
+      userName: task.userName,
+      index: index,
+      changeName: changeName
+    }));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-add",
+    onClick: addTask
+  }, "Add Task")));
+};
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardHolder);
 
 /***/ }),
 
-/***/ "./src/modules/cards.js":
-/*!******************************!*\
-  !*** ./src/modules/cards.js ***!
-  \******************************/
+/***/ "./src/Components/ModalWindow.jsx":
+/*!****************************************!*\
+  !*** ./src/Components/ModalWindow.jsx ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -138,56 +193,124 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
+var ModalWindow = function ModalWindow(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "modal-item"
+  }, props.children);
+};
 
-var Card = /*#__PURE__*/function (_React$Component) {
-  _inherits(Card, _React$Component);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(ModalWindow));
 
-  var _super = _createSuper(Card);
+/***/ }),
 
-  function Card(props) {
-    _classCallCheck(this, Card);
+/***/ "./src/Components/cards.js":
+/*!*********************************!*\
+  !*** ./src/Components/cards.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-    return _super.call(this, props);
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var Card = function Card(props) {
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    return function () {
+      console.log("bue bue");
+    };
+  }, []);
+  console.log("card render");
+
+  if (!props.taskName) {
+    return null;
   }
 
-  _createClass(Card, [{
-    key: "render",
-    value: function render() {
-      if (!this.props.taskName) {
-        return null;
-      }
-
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "Task ".concat(this.props.taskName, ", is ").concat(this.props.isDone ? "done" : "not done"));
+  ;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-item-task"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-item_text"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "title-task"
+  }, "Title of task: ".concat(props.taskName, ", is ").concat(props.isDone ? "done" : "not done")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "user-task"
+  }, "User name: ".concat(props.userName))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "card-iem_buttons"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-change",
+    onClick: props.changeName(props.index)
+  }, "Change task"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-done",
+    onClick: props.changeName(props.index)
+  }, "\u2714 Task is done"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-up",
+    onClick: props.changeName(props.index)
+  }, "\u2191 To the up"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-down",
+    onClick: props.changeName(props.index)
+  }, "\u2193 To the down"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-delete",
+    onClick: props.removeTask(props.index)
+  }, "\xD7 Delete task"), props.children, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+    className: "button-modal",
+    onClick: function onClick() {
+      props.setIsModalOpen( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: function onClick() {
+          props.setIsModalOpen(false);
+        }
+      }, "Close Modal")));
     }
-  }]);
+  }, "Open Modal")));
+};
 
-  return Card;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(Card));
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);
+/***/ }),
+
+/***/ "./src/GlobalModalProvider.jsx":
+/*!*************************************!*\
+  !*** ./src/GlobalModalProvider.jsx ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_CardHolder_CardHolder__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/CardHolder/CardHolder */ "./src/Components/CardHolder/CardHolder.jsx");
+/* harmony import */ var _Components_ModalWindow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Components/ModalWindow */ "./src/Components/ModalWindow.jsx");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+var GlobalModalProvider = function GlobalModalProvider(props) {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      modalContent = _useState2[0],
+      setModalContent = _useState2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, modalContent && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_ModalWindow__WEBPACK_IMPORTED_MODULE_2__["default"], null, modalContent), props.renderProps(setModalContent));
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo(GlobalModalProvider));
 
 /***/ }),
 
@@ -210,7 +333,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: #25995d;\n}", "",{"version":3,"sources":["webpack://./src/styles/index.scss"],"names":[],"mappings":"AAAA;EACE,yBAAA;AACF","sourcesContent":["body {\r\n  background-color: rgb(37, 153, 93);\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "body {\n  background-color: rgba(37, 153, 93, 0.85);\n}\n\nh1 {\n  text-align: center;\n}\n\n.card-item-task {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  width: 16.625rem;\n  padding: 8px;\n  background-color: #ffffff;\n  border: 1px solid #666666;\n  box-shadow: 10px 10px 20px rgba(49, 75, 105, 0.3), 0 10px 10px rgba(49, 75, 105, 0.3);\n  border-radius: 4px;\n  margin-bottom: 16px;\n  transition-duration: 0.3s;\n}\n\n.title-task {\n  color: #221c1d;\n  margin-bottom: 10px;\n}\n\n.user-task {\n  color: #221c1d;\n  margin-bottom: 10px;\n}\n\n.card-row-wrapper {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  padding-left: 5%;\n  padding-right: 5%;\n}\n\n@media (max-width: 1018px) {\n  .card-row-wrapper {\n    justify-content: center;\n    margin: 0 auto;\n  }\n}\n.card-row-item-todo, .card-row-item-inprogress, .card-row-item-done {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  width: 18.625rem;\n  border: 1px solid #e5e5e5;\n  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);\n  padding: 20px;\n  margin-bottom: 16px;\n}\n\n.card-iem_buttons {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  flex-wrap: wrap;\n}\n\n.button-change, .button-done, .button-up, .button-down, .button-delete, .button-modal {\n  width: 150px;\n  margin-bottom: 15 px;\n}\n\n.button-add {\n  padding: 5px 40px;\n}\n\nh3 {\n  color: #ffffff;\n  text-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);\n}\n\n.modal-item {\n  position: absolute;\n  right: 30%;\n  left: 30%;\n  background-color: rgba(3, 36, 30, 0.966);\n  min-width: 300px;\n  min-height: 300px;\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  z-index: 100;\n}", "",{"version":3,"sources":["webpack://./src/styles/index.scss"],"names":[],"mappings":"AAAA;EACE,yCAAA;AACF;;AAEA;EACE,kBAAA;AACF;;AAEA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,gBAAA;EACA,YAAA;EACA,yBAAA;EACA,yBAAA;EACA,qFAAA;EAEA,kBAAA;EACA,mBAAA;EACA,yBAAA;AAAF;;AAGA;EACE,cAAA;EACA,mBAAA;AAAF;;AAGA;EACE,cAAA;EACA,mBAAA;AAAF;;AAGA;EACE,aAAA;EACA,mBAAA;EACA,8BAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;AAAF;;AAGA;EACE;IACE,uBAAA;IACA,cAAA;EAAF;AACF;AAGA;EACE,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,kBAAA;EACA,gBAAA;EACA,yBAAA;EACA,2EAAA;EACA,aAAA;EACA,mBAAA;AADF;;AAIA;EACE,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,eAAA;AADF;;AAIA;EACE,YAAA;EACA,oBAAA;AADF;;AAIA;EACE,iBAAA;AADF;;AAIA;EACE,cAAA;EACA,4EAAA;AADF;;AAIA;EACE,kBAAA;EACA,UAAA;EACA,SAAA;EACA,wCAAA;EACA,gBAAA;EACA,iBAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,qBAAA;EACA,YAAA;AADF","sourcesContent":["body {\r\n  background-color: rgb(37, 153, 93, 0.85);\r\n}\r\n\r\nh1 {\r\n  text-align: center;\r\n}\r\n\r\n.card-item-task {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  width: 16.625rem;\r\n  padding: 8px;\r\n  background-color: #ffffff;\r\n  border: 1px solid #666666;\r\n  box-shadow: 10px 10px 20px rgba(49, 75, 105, 0.3),\r\n    0 10px 10px rgba(49, 75, 105, 0.3);\r\n  border-radius: 4px;\r\n  margin-bottom: 16px;\r\n  transition-duration: 0.3s;\r\n}\r\n\r\n.title-task {\r\n  color: #221c1d;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.user-task {\r\n  color: #221c1d;\r\n  margin-bottom: 10px;\r\n}\r\n\r\n.card-row-wrapper {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-between;\r\n  flex-wrap: wrap;\r\n  padding-left: 5%;\r\n  padding-right: 5%;\r\n}\r\n\r\n@media (max-width: 1018px) {\r\n  .card-row-wrapper {\r\n    justify-content: center;\r\n    margin: 0 auto;\r\n  }\r\n}\r\n\r\n.card-row-item-todo, .card-row-item-inprogress, .card-row-item-done {\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: center;\r\n  align-items: center;\r\n  position: relative;\r\n  width: 18.625rem;\r\n  border: 1px solid #e5e5e5;\r\n  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);\r\n  padding: 20px;\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.card-iem_buttons {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: space-around;\r\n  flex-wrap: wrap;\r\n}\r\n\r\n.button-change, .button-done, .button-up, .button-down, .button-delete, .button-modal {\r\n  width: 150px;\r\n  margin-bottom: 15 px;\r\n}\r\n\r\n.button-add {\r\n  padding: 5px 40px;\r\n}\r\n\r\nh3 {\r\n  color: #ffffff;\r\n  text-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);\r\n}\r\n\r\n.modal-item {\r\n  position: absolute;\r\n  right: 30%;\r\n  left: 30%;\r\n  background-color: rgba(3, 36, 30, 0.966);\r\n  min-width: 300px;\r\n  min-height: 300px;\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-content: center;\r\n  align-items: center;\r\n  align-content: center;\r\n  z-index: 100;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30578,13 +30701,13 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var styles_index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styles/index.scss */ "./src/styles/index.scss");
-/* harmony import */ var _Components_CardHolder_CardHolder__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/CardHolder/CardHolder */ "./src/Components/CardHolder/CardHolder.jsx");
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./src/App.jsx");
+/* harmony import */ var styles_index_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styles/index.scss */ "./src/styles/index.scss");
 
 
 
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Components_CardHolder_CardHolder__WEBPACK_IMPORTED_MODULE_3__["default"], null), document.getElementById("root")); // console.log("Работает!", summ (22, 21));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById("root")); // console.log("Работает!", summ (22, 21));
 // const taskList = [{taskName: "Brush teeth", isDone: false}, {taskName: "Brush teeth", isDone: false}];
 // const cardList = taskList.map(task => {
 //   return new Card(task.taskName, task.isDone, document.getElementById("root"));
@@ -30596,4 +30719,4 @@ react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPOR
 
 /******/ })()
 ;
-//# sourceMappingURL=main.8ff3050fc8fb77820f9b.js.map
+//# sourceMappingURL=main.fafc8d39b58ce8b512da.js.map

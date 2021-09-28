@@ -1,83 +1,130 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Card from '../cards';
+import ModalWindow from '../ModalWindow';
 
-class CardHolder extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      taskList: []
-  }
-  }
 
-  componentDidMount() {
+const CardHolder = (props) => {
+  const [taskList, setTaskList] = useState([]);
+
+  useEffect (() => {
+    console.log('use effect');
     new Promise((resolve, reject) => {
-        resolve([{ taskName: 'task 0', isDone: false, userName: 'Jon' }, { taskName: 'task 1', isDone: false, userName: 'Jack' }])
+      resolve([
+        { taskName: 'task 0', isDone: false, userName: 'Jon' },
+        { taskName: 'task 1', isDone: false, userName: 'Jack' },
+      ]);
     }).then((data) => {
-        this.setState({ taskList: data })
-    })
-}
+      setTaskList(data);
+    });
+    return () => {
+      console.log('bue');
+    };
+  }, []);
 
-  addTask = () => {
-    let newTaskList = [...this.state.taskList];
-    newTaskList.push({taskName:  `task ${this.state.taskList.length}`, isDone: true, userName: 'Jon'});
-    this.setState({taskList:newTaskList});
-  }
+  const addTask = () => {
+    let newTaskList = [...taskList];
+    newTaskList.push({
+      taskName: `task ${taskList.length}`,
+      isDone: true,
+      userName: 'Jon',
+    });
+    setTaskList(newTaskList);
+  };
 
-  changeName = (index) => () => {
-    let result = prompt('New title of task:', '')
-    let newTaskList = [...this.state.taskList];
+  const removeTask = useCallback ((index) => () => {
+    let newTaskList = [...taskList];
+    newTaskList.splice(index, 1);
+    setTaskList(newTaskList);
+  }, [taskList]);
+
+  const changeName = useCallback ((index) => () => {
+    let result = prompt('New title of task:', '');
+    let newTaskList = [...taskList];
     newTaskList[index].taskName = result;
-    this.setState({taskList:newTaskList});
-  }
+    setTaskList(newTaskList);
+  }, [taskList]);
 
-  render() {
-    return (
-      <div className="card-row-wrapper">
-        <div className="card-row-item-todo">
-          <h3>To Do List</h3>
-          <div>
-          {this.state.taskList.map((task, index) => {
+  console.log('cardHolder render');
+
+
+  return (
+    <div className="card-row-wrapper">
+      <div className="card-row-item-todo">
+        <h3>To Do List</h3>
+        <div>
+          {taskList.map((task, index) => {
             return (
-              <div>
-                <Card taskName={task.taskName} isDone={task.isDone} userName={task.userName} index={index} changeName={this.changeName}/>
+              <div key={task.taskName}>
+                <Card
+                  taskName={task.taskName}
+                  setIsModalOpen={props.setIsModalOpen}
+                  removeTask={removeTask}
+                  isDone={task.isDone}
+                  userName={task.userName}
+                  index={index}
+                  changeName={changeName}
+                />
               </div>
-            )
+            );
           })}
         </div>
-        <button className="button-add" onClick={this.addTask}>Add Task</button>
-        </div>
-
-        <div className="card-row-item-inprogress">
-        <h3>List In Progress</h3>
-          <div>
-          {this.state.taskList.map((task, index) => {
-            return (
-              <div>
-                <Card taskName={task.taskName} isDone={task.isDone} userName={task.userName}  index={index} changeName={this.changeName}/>
-              </div>
-            )
-          })}
-        </div>
-        <button className="button-add" onClick={this.addTask}>Add Task</button>
-        </div>
-
-        <div className="card-row-item-done">
-        <h3>Done List</h3>
-          <div>
-          {this.state.taskList.map((task, index) => {
-            return (
-              <div>
-                <Card taskName={task.taskName} isDone={task.isDone} userName={task.userName}  index={index} changeName={this.changeName}/>
-              </div>
-            )
-          })}
-        </div>
-        <button className="button-add" onClick={this.addTask}>Add Task</button>
-        </div>
-        
+        <button className="button-add" onClick={addTask}>
+          Add Task
+        </button>
       </div>
-    );
-  }
-}
+
+      <div className="card-row-item-inprogress">
+        <h3>List In Progress</h3>
+        <div>
+          {taskList.map((task, index) => {
+            return (
+              <div>
+                <Card
+                  taskName={task.taskName}
+                  setIsModalOpen={props.setIsModalOpen}
+                  removeTask={removeTask}
+                  isDone={task.isDone}
+                  userName={task.userName}
+                  index={index}
+                  changeName={changeName}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <button className="button-add" onClick={addTask}>
+          Add Task
+        </button>
+      </div>
+
+      <div className="card-row-item-done">
+        <h3>Done List</h3>
+        <div>
+          {taskList.map((task, index) => {
+            return (
+              <div>
+                <Card
+                  taskName={task.taskName}
+                  setIsModalOpen={props.setIsModalOpen}
+                  removeTask={removeTask}
+                  isDone={task.isDone}
+                  userName={task.userName}
+                  index={index}
+                  changeName={changeName}
+                />
+              </div>
+            );
+          })}
+        </div>
+        <button className="button-add" onClick={addTask}>
+          Add Task
+        </button>
+      </div>
+      {/* <button className="button-modal" onClick={() => {props.setIsModalOpen("Modal opened from CardHolder")}}>
+          Open Modal 
+      </button> */}
+    </div>
+  );
+};
 
 export default CardHolder;
