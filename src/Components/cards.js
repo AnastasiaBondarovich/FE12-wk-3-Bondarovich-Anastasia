@@ -1,6 +1,11 @@
-import React, { useEffect, memo } from 'react';
+import React, { useEffect, useContext, memo } from 'react';
+import { ModalContext } from '../HOC/GlobalModalProvider';
+import { getCardDatailRoute } from '../Routing/Routes';
+import { Link } from 'react-router-dom';
 
 const Card = (props) => {
+  const setModalContent = useContext(ModalContext);
+
   useEffect (() => {
     return () => {
       console.log ("bue bue");
@@ -16,9 +21,12 @@ const Card = (props) => {
     return (
       <div className="card-item-task">
         <div className="card-item_text">
+        <Link to={getCardDatailRoute(props.index)}>
           <div className="title-task">
             {`Title of task: ${props.taskName}, is ${props.isDone ? "done" : "not done"}`}
           </div>
+        </Link>
+          
           <div className="user-task">
             {`User name: ${props.userName}`}
           </div>
@@ -30,9 +38,9 @@ const Card = (props) => {
           <button className="button-down" onClick={props.changeName(props.index)}>↓ To the down</button>
           <button className="button-delete" onClick={props.removeTask(props.index)}>× Delete task</button>
           {props.children}
-          <button className="button-modal" onClick={() => {props.setIsModalOpen(
+          <button className="button-modal" onClick={() => {setModalContent(
             <React.Fragment>
-              <button onClick={() => {props.setIsModalOpen(false)}}>
+              <button onClick={() => {setModalContent(false)}}>
                 Close Modal
               </button>
             </React.Fragment>
