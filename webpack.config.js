@@ -14,7 +14,8 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
-    historyApiFallback: {index: '/'}
+    historyApiFallback: {index: '/'},
+    open: true
   },
   plugins: [new HtmlWebpackPlugin({
     filename: 'index.html',
@@ -25,11 +26,15 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // Creates `style` nodes from JS strings
           "style-loader",
-          // Translates CSS into CommonJS
-          "css-loader",
-          // Compiles Sass to CSS
+          {loader: "css-loader", 
+            options: {
+              modules: {
+                localIdentName: "[path][name]__[local]_[hash:base64:5]",
+              },
+              sourceMap: true,
+            }
+          },
           "sass-loader",
         ],
       },
@@ -37,6 +42,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        exclude: /node_modules/,
+        use: {
+            loader: "file-loader",
+        },
       },
     ],
   }, 
