@@ -2,20 +2,19 @@ import React, { useEffect, memo } from 'react';
 import styled from 'styled-components';
 
 const StyledModalWindow = styled.div`
-  position: absolute;
-  right: 30%;
-  left: 30%;
-  top: 20%;
-  background-color: rgba(3, 36, 30, 0.966);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(3, 36, 30, 0.85);
   min-width: 300px;
   min-height: 300px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
   align-content: center;
-  z-index: 100;
-
+  z-index: 1;
 `
 
 const ModalWindow = (props) => {

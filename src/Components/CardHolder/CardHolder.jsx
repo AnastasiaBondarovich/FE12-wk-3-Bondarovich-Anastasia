@@ -4,6 +4,7 @@ import { ModalContext } from '../../HOC/GlobalModalProvider';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ThemeContext } from '../../HOC/GlobalThemeProvider';
+import EditModal from '../ModalContent/EditModal';
 
 const StyledCardHolder = styled.div`
   .card-row-wrapper {
@@ -50,6 +51,8 @@ const StyledCardHolder = styled.div`
 const CardHolder = (props) => {
   const [taskList, setTaskList] = useState([]);
   const [newTaskName, setNewTaskName] = useState('');
+  const [newTaskDescription, setNewTaskDescription] = useState('');
+  const [newTaskUser, setNewTaskUser] = useState('');
   const setModalContent = useContext(ModalContext);
   const setIsThemeYellow = useContext(ThemeContext);
 
@@ -57,8 +60,8 @@ const CardHolder = (props) => {
     console.log('use effect');
     new Promise((resolve, reject) => {
       resolve([
-        { taskName: 'task 0', isDone: false, userName: 'Jon' },
-        { taskName: 'task 1', isDone: true, userName: 'Jack' },
+        { taskName: 'task 0', taskDescription: 'Define more tags in components.', isDone: false, userName: 'Jon' },
+        { taskName: 'task 1', taskDescription: 'Add more user avatars.', isDone: true, userName: 'Jack' },
       ]);
     }).then((data) => {
       setTaskList(data);
@@ -68,15 +71,16 @@ const CardHolder = (props) => {
     };
   }, []);
 
-  const addTask = () => {
+  const addTask = (newTaskName, newTaskDescription) => {
+    console.log('addTask');
     let newTaskList = [...taskList];
     newTaskList.push({
       taskName: newTaskName,
+      taskDescription: newTaskDescription,
       isDone: true,
-      userName: 'Jon',
+      userName: newTaskUser,
     });
     setTaskList(newTaskList);
-    setNewTaskName('');
   };
 
   const removeTask = useCallback(
@@ -116,6 +120,7 @@ const CardHolder = (props) => {
                 <div key={task.taskName}>
                   <Card
                     taskName={task.taskName}
+                    taskDescription={task.taskDescription}
                     removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
@@ -126,8 +131,11 @@ const CardHolder = (props) => {
               );
             })}
           </div>
-          <button className="button-add" onClick={addTask}>
+          {/* <button className="button-add" onClick={addTask}>
             Add Task
+          </button> */}
+          <button className="button-add" onClick={() => {setModalContent(<EditModal addTask={addTask}/>)}}>
+            Add Task 
           </button>
         </div>
 
@@ -139,6 +147,7 @@ const CardHolder = (props) => {
                 <div key={task.taskName}>
                   <Card
                     taskName={task.taskName}
+                    taskDescription={task.taskDescription}
                     removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
@@ -149,8 +158,8 @@ const CardHolder = (props) => {
               );
             })}
           </div>
-          <button className="button-add" onClick={addTask}>
-            Add Task
+          <button className="button-add" onClick={() => {setModalContent(<EditModal addTask={addTask}/>)}}>
+            Add Task 
           </button>
         </div>
 
@@ -162,6 +171,7 @@ const CardHolder = (props) => {
                 <div key={task.taskName}>
                   <Card
                     taskName={task.taskName}
+                    taskDescription={task.taskDescription}
                     removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
@@ -172,8 +182,8 @@ const CardHolder = (props) => {
               );
             })}
           </div>
-          <button className="button-add" onClick={addTask}>
-            Add Task
+          <button className="button-add" onClick={() => {setModalContent(<EditModal addTask={addTask}/>)}}>
+            Add Task 
           </button>
         </div>
         {/* <button className="button-modal" onClick={() => {setModalContent("Modal opened from CardHolder")}}>

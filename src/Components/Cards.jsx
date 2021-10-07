@@ -72,6 +72,10 @@ const Card = (props) => {
             {`Title of task: ${props.taskName}, is ${props.isDone ? "done" : "not done"}`}
           </div>
         </Link>
+
+        <div className="task-description">
+            {`Description: ${props.taskDescription}`}
+          </div>
           
           <div className="user-task">
             {`User name: ${props.userName}`}

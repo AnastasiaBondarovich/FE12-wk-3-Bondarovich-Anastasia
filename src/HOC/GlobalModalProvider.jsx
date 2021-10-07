@@ -8,11 +8,11 @@ const GlobalModalProvider = (props) => {
   const [modalContent, setModalContent] = useState(false);
     return (
       <React.Fragment>
-        {modalContent && 
+        <ModalContext.Provider value={setModalContent}>
+          {modalContent && 
         <ModalWindow>
           {modalContent}
         </ModalWindow>}
-        <ModalContext.Provider value={setModalContent}>
           {props.children}
         </ModalContext.Provider>
       </React.Fragment>
