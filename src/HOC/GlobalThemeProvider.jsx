@@ -13,10 +13,12 @@ body {
 }
 `
 
+export const globalStyle = {darkTheme: "#ff0"};
+export const secondGlobalStyle = {darkTheme: "#ffffff"};
+
 const GlobalThemeProvider = (props) => {
   const [isThemeYellow, setIsThemeYellow] = useState(false);
-  const globalStyle = {darkTheme: "#ff0"};
-  const secondGlobalStyle = {darkTheme: "#ffffff"};
+  
   return (
     <StyleSheetManager disableVendorPrefixes={true}>
       <ThemeProvider theme={isThemeYellow ? globalStyle : secondGlobalStyle}>

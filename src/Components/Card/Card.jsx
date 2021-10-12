@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, memo } from 'react';
-import { ModalContext } from '../HOC/GlobalModalProvider';
-import { getCardDatailRoute } from '../Routing/Routes';
+import { ModalContext } from '../../HOC/GlobalModalProvider';
+import { getCardDatailRoute } from '../../Routing/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -65,7 +65,7 @@ const Card = (props) => {
     };
 
     return (
-      <StyledCard isDone={props.isDone}>
+      <StyledCard isDone={props.isDone} state={props.state}>
         <div className="card-item_text">
         <Link to={getCardDatailRoute(props.index)}>
           <div className="title-task">

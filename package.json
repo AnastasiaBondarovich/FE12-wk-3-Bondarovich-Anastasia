@@ -6,7 +6,9 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
@@ -26,7 +28,9 @@
     "babel-plugin-styled-components": "^1.13.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
     "react-router-dom": "^5.3.0",
+    "redux": "^4.1.1",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
@@ -34,8 +38,15 @@
     "@babel/preset-env": "^7.15.6",
     "@babel/preset-react": "^7.14.5",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "@react-theming/storybook-addon": "^1.1.1",
+    "@storybook/addon-actions": "^6.3.10",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/react": "^6.3.10",
+    "@webpack-cli/generators": "^2.4.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.3.0",
+    "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.2",
     "prettier": "^2.4.1",

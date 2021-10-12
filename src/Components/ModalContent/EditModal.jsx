@@ -1,6 +1,7 @@
 import React, { useEffect, memo, useContext, useState } from 'react';
 import styled from 'styled-components';
 import { ModalContext } from '../../HOC/GlobalModalProvider';
+import { TASK_STATUS } from '../../constants/tasksStatus';
 
 const StyledEditModal = styled.div`
   background-color: #ffffff;
@@ -167,7 +168,7 @@ const EditModal = (props) => {
             </select>
           </p>
           <div className={"buttons-popup"}>
-            <button onClick={() => {props.addTask(newTaskName, newTaskDescription); setModalContent(false)}} type="button" id="save-button-popup">Save task</button>
+            <button onClick={() => {props.addTask(newTaskName, newTaskDescription,  newTaskUser, props.state); setModalContent(false);  console.log('modal', props.state)}} type="button" id="save-button-popup">Save task</button>
             <button onClick={() => { setModalContent(false) }} type="button" id="delete-button-popup">Delete</button>
           </div>
         </StyledEditModal>

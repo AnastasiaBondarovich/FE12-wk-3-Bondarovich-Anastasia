@@ -1,0 +1,1 @@
+export const CARD_LIST_ACTIONS = {add: 'add_card_to_list'}
