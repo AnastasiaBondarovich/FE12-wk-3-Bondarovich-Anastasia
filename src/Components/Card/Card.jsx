@@ -3,6 +3,10 @@ import { ModalContext } from '../../HOC/GlobalModalProvider';
 import { getCardDatailRoute } from '../../Routing/Routes';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { removeCard } from '../../store/actions/cardsList';
+import { TASK_STATUS } from '../../constants/tasksStatus';
+import ChangeModal from '../ModalContent/ChangeModal';
 
 const StyledCard = styled.div`
   display: flex;
@@ -44,6 +48,7 @@ const StyledCard = styled.div`
   .button-change, .button-done, .button-up, .button-down, .button-delete, .button-modal {
     width: 150px;
     margin-bottom: 15 px;
+    margin-top: 5px;
   }
 
 
@@ -51,6 +56,8 @@ const StyledCard = styled.div`
 
 const Card = (props) => {
   const setModalContent = useContext(ModalContext);
+
+  const dispatch = useDispatch();
 
   useEffect (() => {
     return () => {
@@ -82,18 +89,15 @@ const Card = (props) => {
           </div>
         </div>
         <div className="card-item_buttons">
-          <button className="button-change" onClick={props.changeName(props.index)}>Change task</button>
-          <button className="button-done" onClick={props.changeName(props.index)}>✔ Task is done</button>
+          {/* <button className="button-change" onClick={props.changeName(props.index)}>Change task</button> */}
+          {props.state !== TASK_STATUS.done &&
+          <button className="button-done" onClick={props.changeName(props.index)}>✔ Task is done</button>}
           <button className="button-up" onClick={props.changeName(props.index)}>↑ To the up</button>
           <button className="button-down" onClick={props.changeName(props.index)}>↓ To the down</button>
-          <button className="button-delete" onClick={props.removeTask(props.index)}>× Delete task</button>
+          <button className="button-delete" onClick={() => {dispatch(removeCard(props.index))}}>× Delete task</button>
           {props.children}
           <button className="button-modal" onClick={() => {setModalContent(
-            <React.Fragment>
-              <button onClick={() => {setModalContent(false)}}>
-                Close Modal
-              </button>
-            </React.Fragment>
+            <ChangeModal taskName={props.taskName} taskDescription={props.taskDescription} taskUser={props.userName} changeName={props.changeName} index={props.index}/>
           )}}>
           Open Modal 
         </button>

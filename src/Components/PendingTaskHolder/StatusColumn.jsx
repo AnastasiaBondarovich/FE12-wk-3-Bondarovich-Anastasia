@@ -21,6 +21,7 @@ const StyledStatusColumn = styled.div`
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3), 0 10px 10px rgba(0, 0, 0, 0.27);
     padding: 20px;
     margin-bottom: 16px;
+    margin-right: 16px;
 
   h3 {
     text-align: center;
@@ -43,7 +44,7 @@ const StatusColumn = (props) => {
   return (
     <StyledStatusColumn>
         <div className="card-row-item-todo">
-          <h3>{props.title}</h3>
+          <h3>{props.columnName}</h3>
           <div>
             {props.children}
           </div>

@@ -1,12 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from '../store/initStore';
+import { store, persistor } from '../store/initStore';
+import { PersistGate } from 'redux-persist/integration/react'
 
 const GlobalStoreProvider = (props) => {
   return (
-    <Provider store={store}>
-      {props.children}
-    </Provider>
+    <PersistGate persistor={persistor}>
+      <Provider store={store}>
+        {props.children}
+      </Provider>
+    </PersistGate>
   )
 }
 

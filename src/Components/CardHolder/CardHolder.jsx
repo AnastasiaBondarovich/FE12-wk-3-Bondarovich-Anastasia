@@ -8,9 +8,10 @@ import EditModal from '../ModalContent/EditModal';
 import { useSelector } from 'react-redux';
 import { cardListSelector } from '../../store/selectors/cardsList';
 import { useDispatch } from 'react-redux';
-import { newCard } from '../../store/actions/cardsList';
+import { changeCard, newCard } from '../../store/actions/cardsList';
 import StatusColumn from '../PendingTaskHolder/StatusColumn';
 import { TASK_STATUS } from '../../constants/tasksStatus';
+import NewColumnModal from '../ModalContent/NewColumnModal';
 
 const StyledCardHolder = styled.div`
   .card-row-wrapper {
@@ -36,9 +37,12 @@ const StyledCardHolder = styled.div`
 const CardHolder = (props) => {
   const taskList = useSelector(cardListSelector);
   const dispatch = useDispatch();
-  const [newTaskName, setNewTaskName] = useState('');
-  const [newTaskDescription, setNewTaskDescription] = useState('');
-  const [newTaskUser, setNewTaskUser] = useState('');
+  // const [newTaskName, setNewTaskName] = useState('');
+  // const [newTaskDescription, setNewTaskDescription] = useState('');
+  // const [newTaskUser, setNewTaskUser] = useState('');
+  const [columnList, setColumnList] = useState([]);
+  const [newColumnName, setNewColumnName] = useState('');
+
   const setModalContent = useContext(ModalContext);
   const setIsThemeYellow = useContext(ThemeContext);
 
@@ -72,24 +76,30 @@ const CardHolder = (props) => {
     // setTaskList(newTaskList);
   };
 
-  const removeTask = useCallback(
-    (index) => () => {
-      let newTaskList = [...taskList];
-      newTaskList.splice(index, 1);
-      setTaskList(newTaskList);
-    },
-    [taskList]
-  );
+  const addColumn = (newColumnName) => {
+    console.log('addColumn', newColumnName);
+    let newColumnList = [...columnList];
+    newColumnList.push({
+      columnName: newColumnName,
+      // state: state,
+    });
+    setColumnList(newColumnList);
+  };
 
-  const changeName = useCallback(
-    (index) => () => {
-      let result = prompt('New title of task:', '');
-      let newTaskList = [...taskList];
-      newTaskList[index].taskName = result;
-      setTaskList(newTaskList);
-    },
-    [taskList]
-  );
+  // const removeTask = useCallback(
+  //   (index) => () => {
+  //     let newTaskList = [...taskList];
+  //     newTaskList.splice(index, 1);
+  //     setTaskList(newTaskList);
+  //   },
+  //   [taskList]
+  // );
+
+  const changeName = (changeTaskName, changeTaskDescription, index) => {
+    // console.log ('change modal', changeTaskName, changeTaskDescription, index)
+    // dispatch(changeCard(changeTaskName, changeTaskDescription, index));
+  }
+  
 
   console.log('cardHolder render');
 
@@ -99,9 +109,9 @@ const CardHolder = (props) => {
       <br/>
       <Link to={'/card/123'}>Go</Link>
       <br/>
-      <input value={newTaskName} onChange={(event) => {setNewTaskName(event.target.value)}} />
+      {/* <input value={newTaskName} onChange={(event) => {setNewTaskName(event.target.value)}} /> */}
       <div className="card-row-wrapper">
-        <StatusColumn title={'List To Do'} addTask={addTask} taskStatus={TASK_STATUS.pending}>
+        <StatusColumn columnName={'List To Do'} addTask={addTask} taskStatus={TASK_STATUS.pending}>
         {taskList.map((task, index) => {
           if (task.state === TASK_STATUS.pending){
             return (
@@ -109,7 +119,7 @@ const CardHolder = (props) => {
                   <Card
                     taskName={task.taskName}
                     taskDescription={task.taskDescription}
-                    removeTask={removeTask}
+                    // removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
                     index={index}
@@ -124,7 +134,7 @@ const CardHolder = (props) => {
             })}
         </StatusColumn>
 
-        <StatusColumn title={'List In Progress'} addTask={addTask} taskStatus={TASK_STATUS.progress}>
+        <StatusColumn columnName={'List In Progress'} addTask={addTask} taskStatus={TASK_STATUS.progress}>
         {taskList.map((task, index) => {
           if (task.state === TASK_STATUS.progress){
             return (
@@ -132,7 +142,7 @@ const CardHolder = (props) => {
                   <Card
                     taskName={task.taskName}
                     taskDescription={task.taskDescription}
-                    removeTask={removeTask}
+                    // removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
                     index={index}
@@ -146,7 +156,7 @@ const CardHolder = (props) => {
             })}
         </StatusColumn>
     
-        <StatusColumn title={'Done List'} addTask={addTask} taskStatus={TASK_STATUS.done}>
+        <StatusColumn columnName={'Done List'} addTask={addTask} taskStatus={TASK_STATUS.done}>
         {taskList.map((task, index) => {
           if (task.state === TASK_STATUS.done) {
             return (
@@ -154,7 +164,7 @@ const CardHolder = (props) => {
                   <Card
                     taskName={task.taskName}
                     taskDescription={task.taskDescription}
-                    removeTask={removeTask}
+                    // removeTask={removeTask}
                     isDone={task.isDone}
                     userName={task.userName}
                     index={index}
@@ -168,6 +178,7 @@ const CardHolder = (props) => {
             })}
         </StatusColumn>
       </div>
+      <button onClick={() => {setModalContent(<NewColumnModal addColumn={addColumn}/>)}}>Add New Column</button>
 
     </StyledCardHolder>
   );

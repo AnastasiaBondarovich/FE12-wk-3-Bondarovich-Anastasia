@@ -29,8 +29,9 @@ const StyledMainLayout = styled.div`
 
   .header {
     display: flex;
-    justify-content: center;
-    padding: 15px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
     position: relative;
     z-index: 1;
     &::after {
@@ -46,10 +47,17 @@ const StyledMainLayout = styled.div`
       left: 0;
     }
   }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
   
   .footer {
     display: flex;
     justify-content: center;
+    margin-top: 6.25rem;
     padding: 15px 0;
     position: relative;
     z-index: 1;
@@ -74,11 +82,14 @@ const MainLayout = (props) => {
     <StyledMainLayout>
       <div className={'header'}> 
         Header 
+        <div className={'navbar'}>
+          <Link to={'/cards/pending'}> List To Do </Link>
+          <Link to={'/cards/progress'}> List In Progress </Link>
+          <Link to={'/cards/done'}> Done List </Link>
+        </div>
       </div>
       <div className={'contentWithNavbar'}>
-        <div className={'navbar'}>
-          <Link to={'/cards/done'}> Done Tasks </Link>
-        </div>
+        
         <div className={'content'}>
           {props.children}
         </div>

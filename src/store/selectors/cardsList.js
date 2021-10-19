@@ -1,1 +1,3 @@
-export const cardListSelector = store => store.taskList
+export const cardListSelector = store => {
+  return (store.taskListReducer.taskList)
+} 
